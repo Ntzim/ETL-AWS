@@ -1,0 +1,37 @@
+{
+  "name" : "PremierLeague1-ETL.job",
+  "description" : "",
+  "role" : "arn:aws:iam::591657296863:role/LabRole",
+  "executionProperty" : {
+    "maxConcurrentRuns" : 1
+  },
+  "command" : {
+    "name" : "pythonshell",
+    "scriptLocation" : "s3://aws-glue-assets-591657296863-us-east-1/scripts/PremierLeague1-ETL.job.py",
+    "pythonVersion" : "3.9"
+  },
+  "defaultArguments" : {
+    "--REDSHIFT_USER" : "premierleague1",
+    "--REDSHIFT_PASSWORD" : "Premierleague1",
+    "--enable-job-insights" : "false",
+    "--REDSHIFT_DBNAME" : "dev",
+    "--REDSHIFT_HOST" : "redshift-cluster-premierleague1.crbya6ximafi.us-east-1.redshift.amazonaws.com",
+    "--enable-glue-datacatalog" : "true",
+    "library-set" : "analytics",
+    "--REDSHIFT_PORT" : "5439",
+    "--job-language" : "python",
+    "--TempDir" : "s3://aws-glue-assets-591657296863-us-east-1/temporary/"
+  },
+  "maxRetries" : 0,
+  "allocatedCapacity" : 0,
+  "timeout" : 2880,
+  "maxCapacity" : 0.0625,
+  "glueVersion" : "3.0",
+  "executionClass" : "STANDARD",
+  "sourceControlDetails" : {
+    "provider" : "GITHUB",
+    "repository" : "ETL-AWS",
+    "branch" : "main",
+    "folder" : "PremierLeague1-ETL.job"
+  }
+}
